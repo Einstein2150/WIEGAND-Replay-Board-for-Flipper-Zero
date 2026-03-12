@@ -45,6 +45,10 @@ WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND
 
 <img src="images/WG-Simulation.png" alt="capture" width="550"/>
 
+## Installation
+
+Copy the fap-File from [https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases](https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases) into the folder "SD Card/apps/GPIO/" of your Flipper Zero.
+
 ## Wiring
 
 The Wiegand Replay Board simplifies the wiring dramatically.
@@ -121,6 +125,3 @@ This is HID 48 bit Corporate 1000 - C1k48s format. The first bit is odd parity 2
 
 These formats are not very standardized, so the application will not try to interpret the data.
 
-## Installation
-
-Copy the fap-File into ...
