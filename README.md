@@ -3,12 +3,12 @@ by Raik Schneider (Einstein2150)
 
 **WIEGAND Replay Board for Flipper Zero made with ❤️ in Germany - in cooperation with  [multi-circuit-boards.eu]( https://www.multi-circuit-boards.eu)**
 
-<img src="Images/WG-SMD.png" alt="board" width="550"/>
+<img src="images/WG-SMD.png" alt="board" width="550"/>
 
 WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases](https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases)
 
 ## Buy the WIEGAND Replay Board for Flipper Zero
-<img src="Images/WG-buy.png" alt="buy" width="250"/>
+<img src="images/WG-buy.png" alt="buy" width="250"/>
 
 ***THE BOARD IS AVAILABLE SOON***
  
@@ -18,13 +18,13 @@ WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND
 - This application supports W4, W8, W24, W26, W32, W34, W37, W40 and W48 formats.
 - This application can be used to test Wiegand readers and keypads. It can save the data to a file, and can load and replay the data. Timings are measured and displayed; which can be used to help debug Wiegand readers.
 
-<img src="Images/WG-Diag.png" alt="capture" width="550"/>
+<img src="images/WG-Diag.png" alt="capture" width="550"/>
 
 ### Read
 - Logs raw Wiegand data
 - Supports Wiegand‑based systems such as RFID, NFC, PIN pads, magnetic stripe readers, and barcode scanners
 
-<img src="Images/WG-Cap.png" alt="capture" width="550"/>
+<img src="images/WG-Cap.png" alt="capture" width="550"/>
 
 ### Read with Autosave
 - Logs raw Wiegand data in batch mode
@@ -35,7 +35,7 @@ WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND
 - Replays stored datasets back onto the Wiegand interface
 - MOSFETs ensure safe and reliable modulation of data onto the line
 
-<img src="Images/WG-Replay.png" alt="capture" width="550"/>
+<img src="images/WG-Replay.png" alt="capture" width="550"/>
 
 ### Stand‑Alone / Simulation Mode
 - The board drives the data lines to a hardware‑controlled high level, allowing the simulation of an active Wiegand device without real peripherals (e.g., NFC readers)
@@ -43,7 +43,7 @@ WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND
 - One board can also be paired with the optional ESP‑RFID‑Tool v2 PRO for bidirectional communication
 - Optional 5V output pin on the board can power devices such as the ESP‑RFID‑Tool v2 PRO directly
 
-<img src="Images/WG-Simulation.png" alt="capture" width="550"/>
+<img src="images/WG-Simulation.png" alt="capture" width="550"/>
 
 ## Wiring
 
@@ -57,7 +57,7 @@ Only three connections are required:
 - D1 (Board) to D1 (Wiegand-Device) - WHITE wire
 - GND (Board) to GND (Wiegand-Device) - BLACK wire
 
-<img src="Images/WG-Wiring.png" alt="wiring" width="800"/>
+<img src="images/WG-Wiring.png" alt="wiring" width="800"/>
 
 That’s it — no resistors, no MOSFETs, no additional components.
 The board internally pulls both data lines to 5 V (HIGH).
