@@ -8,9 +8,11 @@ by Raik Schneider (Einstein2150)
 WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases](https://github.com/Einstein2150/WIEGAND-Replay-Board-for-Flipper-Zero/releases)
 
 ## Buy the WIEGAND Replay Board for Flipper Zero
-<img src="images/WG-buy.png" alt="buy" width="250"/>
+<a href="http://flipper.foto-video-it.de">
+  <img src="images/WG-buy.png" alt="buy" width="250"/>
+</a>
 
-***THE BOARD IS AVAILABLE SOON***
+[Store link](http://flipper.foto-video-it.de)
  
 ## Features
 
