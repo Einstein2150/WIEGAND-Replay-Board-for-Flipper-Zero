@@ -10,7 +10,7 @@ void wiegand_instructions_scene_on_enter(void* context) {
         15,
         128,
         40,
-        "Version 1.5\n"
+        "Version 1.6\n"
         "Made with love by\n"
         "Raik Schneider\n"
         "(Einstein2150)\n"

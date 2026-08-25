@@ -109,7 +109,7 @@ static void wiegand_scan_timer_callback(void* context) {
     if(duration > 25 * one_millisecond) {
         if(bit_count == 4 || bit_count == 8 || bit_count == 24 || bit_count == 26 ||
            bit_count == 32 || bit_count == 34 || bit_count == 35 || bit_count == 36 ||
-           bit_count == 37 || bit_count == 40 || bit_count == 48) {
+           bit_count == 37 || bit_count == 40 || bit_count == 48 || bit_count == 56) {
             // DO NOT STOP SCAN ANYMORE
             found = true;
 

@@ -17,7 +17,7 @@ WIEGAND Replay Board Application (fap): [https://github.com/Einstein2150/WIEGAND
 ## Features
 
 ### General
-- This application supports W4, W8, W24, W26, W32, W34, W37, W40 and W48 formats.
+- This application supports W4, W8, W24, W26, W32, W34, W35, W37, W40, W48 and W56 formats.
 - This application can be used to test Wiegand readers and keypads. It can save the data to a file, and can load and replay the data. Timings are measured and displayed; which can be used to help debug Wiegand readers.
 
 <img src="images/WG-Diag.png" alt="capture" width="550"/>

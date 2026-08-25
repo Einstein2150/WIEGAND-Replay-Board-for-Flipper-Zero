@@ -19,13 +19,13 @@ extern const GpioPin* const pinD0mosfet;
 extern const GpioPin* const pinD1;
 extern const GpioPin* const pinD1mosfet;
 extern volatile int bit_count;
-#define MAX_BITS 48
+#define MAX_BITS 56
 extern volatile bool data[];
 extern volatile uint32_t data_fall[];
 extern volatile uint32_t data_rise[];
 extern bool data_saved;
 
-#define WIEGAND_KEY_NAME_SIZE 25
+#define WIEGAND_KEY_NAME_SIZE    25
 #define WIEGAND_APPS_DATA_FOLDER EXT_PATH("apps_data")
 #define WIEGAND_SAVE_FOLDER      \
     WIEGAND_APPS_DATA_FOLDER "/" \

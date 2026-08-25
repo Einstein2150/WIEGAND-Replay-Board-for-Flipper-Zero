@@ -5,15 +5,14 @@ void wiegand_isr_d0(void* context) {
     uint32_t time = DWT->CYCCNT;
     bool rise = furi_hal_gpio_read(pinD0);
 
-    data[bit_count] = 0;
-
-    if(rise) {
-        data_rise[bit_count] = time;
-        if(bit_count < MAX_BITS) {
-            bit_count++;
-        }
-    } else {
+    if(!rise) {
+        // FALL = Start of bit
         data_fall[bit_count] = time;
+        data[bit_count] = 0;
+        bit_count++;
+    } else {
+        // RISE = End of bit
+        data_rise[bit_count - 1] = time;
     }
 }
 
@@ -22,15 +21,14 @@ void wiegand_isr_d1(void* context) {
     uint32_t time = DWT->CYCCNT;
     bool rise = furi_hal_gpio_read(pinD1);
 
-    data[bit_count] = 1;
-
-    if(rise) {
-        data_rise[bit_count] = time;
-        if(bit_count < MAX_BITS) {
-            bit_count++;
-        }
-    } else {
+    if(!rise) {
+        // FALL = Start of bit
         data_fall[bit_count] = time;
+        data[bit_count] = 1;
+        bit_count++;
+    } else {
+        // RISE = End of bit
+        data_rise[bit_count - 1] = time;
     }
 }
 
@@ -67,10 +65,10 @@ void wiegand_timer_callback(void* context) {
     duration -= data_fall[bit_count - 1];
 
     FURI_CRITICAL_ENTER();
-    if(duration > 25 * one_millisecond) {
+    if(duration > 50 * one_millisecond) {
         if(bit_count == 4 || bit_count == 8 || bit_count == 24 || bit_count == 26 ||
            bit_count == 32 || bit_count == 34 || bit_count == 35 || bit_count == 36 ||
-           bit_count == 37 || bit_count == 40 || bit_count == 48) {
+           bit_count == 37 || bit_count == 40 || bit_count == 48 || bit_count == 56) {
             wiegand_stop_read(app);
             scene_manager_next_scene(app->scene_manager, WiegandDataScene);
         } else {

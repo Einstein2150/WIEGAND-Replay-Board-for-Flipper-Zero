@@ -147,6 +147,26 @@ void wiegand_add_info_48bit(FuriString* buffer) {
     // TODO: Add the 3 parity checks.
 }
 
+void wiegand_add_info_32bit(FuriString* buffer) {
+    // Raw UID: all 32 bits
+    uint64_t uid = 0;
+    for(int i = 0; i < 32; i++) {
+        uid = (uid << 1) | (data[i] ? 1 : 0);
+    }
+
+    furi_string_cat_printf(buffer, "Raw HEX (32-bit): %08llX", uid);
+}
+
+void wiegand_add_info_34bit(FuriString* buffer) {
+    // Raw UID: bits 1..32 (skip parity bits 0 and 33)
+    uint64_t uid = 0;
+    for(int i = 1; i <= 32; i++) {
+        uid = (uid << 1) | (data[i] ? 1 : 0);
+    }
+
+    furi_string_cat_printf(buffer, "Raw HEX (32-bit, no parity): %08llX", uid);
+}
+
 void wiegand_add_info_35bit(FuriString* buffer) {
     // We assume this is HID 35 bit Corporate 1000 - C1k35s format.
 
@@ -157,6 +177,12 @@ void wiegand_add_info_35bit(FuriString* buffer) {
         code |= data[i] ? 1 : 0;
     }
     furi_string_cat_printf(buffer, "Facility: %lX (%ld)", code, code);
+    // Raw UID for HID 35-bit Corporate 1000 (bits 1..32)
+    uint64_t uid = 0;
+    for(int i = 1; i <= 32; i++) {
+        uid = (uid << 1) | (data[i] ? 1 : 0);
+    }
+    furi_string_cat_printf(buffer, "Raw HEX (32-bit, no parity): %08llX\n", uid);
 
     // 20 bit card id
     code = 0;
@@ -192,6 +218,21 @@ void wiegand_add_info_36bit(FuriString* buffer) {
     furi_string_cat_printf(buffer, "\nCard: %lX (%ld)", cardID, cardID);
 }
 
+void wiegand_add_info_56bit(FuriString* buffer) {
+    // 56-bit Wiegand: typically 7-byte UID (MIFARE / DESFire)
+    uint64_t uid = 0;
+
+    for(int i = 0; i < 56; i++) {
+        uid = (uid << 1) | (data[i] ? 1 : 0);
+    }
+
+    // Print UID as hex (14 hex chars)
+    furi_string_cat_printf(buffer, "HEX (56-bit): %014llX", uid);
+
+    // Also print decimal for completeness
+    furi_string_cat_printf(buffer, "\nDecimal: %llu", uid);
+}
+
 void wiegand_add_info(FuriString* buffer) {
     furi_string_push_back(buffer, '\n');
     if(bit_count == 4 || bit_count == 8) {
@@ -200,12 +241,18 @@ void wiegand_add_info(FuriString* buffer) {
         wiegand_add_info_26bit(buffer);
     } else if(bit_count == 24) {
         wiegand_add_info_24bit(buffer);
+    } else if(bit_count == 32) {
+        wiegand_add_info_32bit(buffer);
+    } else if(bit_count == 34) {
+        wiegand_add_info_34bit(buffer);
     } else if(bit_count == 35) {
         wiegand_add_info_35bit(buffer);
     } else if(bit_count == 36) {
         wiegand_add_info_36bit(buffer);
     } else if(bit_count == 48) {
         wiegand_add_info_48bit(buffer);
+    } else if(bit_count == 56) {
+        wiegand_add_info_56bit(buffer);
     }
     furi_string_push_back(buffer, '\n');
 }
